@@ -1,0 +1,23 @@
+{
+  "name": "c8-test-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --inlineSourceMap index.ts",
+    "start": "NODE_V8_COVERAGE=./coverage/tmp FROM=a node --enable-source-maps .",
+    "start2": "NODE_V8_COVERAGE=./coverage/tmp FROM=b node --enable-source-maps .",
+    "report": "c8 report -r html --all -x .vscode -x coverage",
+    "test": "npm run build && npm run start && npm run start2 && npm run report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "c8": "^7.11.0",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  }
+}
